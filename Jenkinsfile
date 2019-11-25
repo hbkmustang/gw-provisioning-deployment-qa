@@ -1,9 +1,15 @@
 
 node () {
 
+    stage ("CREATING INSTANCE QA") {
+       sh "cd /home/ec2-user/GraduationWork"
+       echo ansible playbook 
+       sh "sh go.sh"
+    }
+
     stage ("PROVISIONING") {
        sh "cd /home/ec2-user/GraduationWork"
-       echo ansible playbook different playbooks/roles for provisioning QA instance
+       echo ansible playbook roles for provisioning QA instance
        // sh "sh go.sh"
        sh "ansible-playbook -i hosts --limit qa provisioning/site.yml"
     }
